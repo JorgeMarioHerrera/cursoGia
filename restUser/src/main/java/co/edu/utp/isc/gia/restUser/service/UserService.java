@@ -52,8 +52,7 @@ public class UserService {
     }
 
     public UserDTO findOne(Long id) {
-        Optional<User> entity = userRepository.findById(id);
-        
+        Optional<User> entity = userRepository.findById(id);        
         if (entity != null) {
             UserDTO res = mapper.map(entity.get(), UserDTO.class);
             return res;

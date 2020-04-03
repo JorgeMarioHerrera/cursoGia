@@ -35,7 +35,6 @@ public class UserController {
     @PostMapping
     public ResponseEntity<?> save(@RequestBody UserDTO user) {
         UserDTO userDto = userService.save(user);
-
         if (userDto != null) {
             return ResponseEntity.ok(userDto);
         }
