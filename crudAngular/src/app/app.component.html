@@ -1,0 +1,43 @@
+<div>
+    <h2>
+        CRUD
+    </h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li *ngFor="let item of users" class="list-group-item list-group-item-action" (click)="openForEdit(item)" [class.active]="item == selectedUser">
+
+                    <span class="badge badge-primary">{{item.id}} - </span> nombre: {{item.name}} - username: {{item.username}} - correo: {{item.email}}
+
+            </ul>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="card-title">
+                        Inserte persona
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="selectedUser.username" placeholder=" username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="selectedUser.password" placeholder=" password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="selectedUser.name" placeholder=" name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="selectedUser.email" placeholder=" email" class="form-control">
+                    </div>
+                </div>
+                <button (click)="addOrEdit()">
+                   Guardar
+                  </button>
+                <button *ngIf="selectedUser.id !== 0" class="btn btn-danger" (click)="borrar()">
+                  Borrar
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

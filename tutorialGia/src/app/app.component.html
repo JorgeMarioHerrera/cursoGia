@@ -1,0 +1,16 @@
+<div>
+    <h1>calculadora</h1>
+    <div>
+        <input type="text" value="{{res}}" readonly>
+    </div>
+</div>
+<div>
+    <button (click)="agregarElemento(item)" *ngFor="let item of botonesGrandes">
+    {{item}}
+  </button>
+    <button (click)="agregarElemento(boton)" *ngFor="let boton of botones">
+    {{boton}}
+  </button>
+</div>
+
+<router-outlet></router-outlet>

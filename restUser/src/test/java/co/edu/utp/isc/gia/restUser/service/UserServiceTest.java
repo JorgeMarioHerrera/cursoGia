@@ -45,7 +45,7 @@ public class UserServiceTest {
 
     @Test
     public void save() {
-        userEntity = new User(1L, "mario", "mario", "marito", "mario@vorreo");
+        userEntity = new User(1L, "mario", "mario", "mario", "mario@mario");
         when(userRepository.save(any(User.class))).thenReturn(userEntity);
 
         userdto = new UserDTO(null, "MARIO", "mario", "mario", "mario@mario");
@@ -57,5 +57,29 @@ public class UserServiceTest {
         assertEquals(expected.getId(), result.getId());
         assertEquals(expected.getUsername(), result.getUsername());
         assertEquals(expected, result);
+    }
+    
+    @Test
+    public void testAllDataOkUser() throws Exception{
+        userEntity = new UserEntity(1L, "cgallego", "1223", "Cristian Gallego", "cgallego@gmail.com");
+        when(userRepository.save(any(UserEntity.class))).thenReturn(userEntity);
+        
+        //input
+        userDto = new UserDTO(null, "CGALLEGO", "1223", "Cristian Gallego", "cgallego@gmail.com");
+        
+        //target
+        UserServiceImpl instance = new UserServiceImpl(userRepository, mapper);
+        
+        //expect
+        UserDTO expect = new UserDTO(1L, "cgallego", "1223", "Cristian Gallego", "cgallego@gmail.com");
+        
+        //Test
+        UserDTO result = instance.save(userDto);
+        
+        assertEquals(expect.getId(), result.getId());
+        assertEquals(expect.getUsername(), result.getUsername());
+        assertEquals(expect.getName(), result.getName());
+        assertEquals(expect.getPassword(), result.getPassword());
+        assertEquals(expect.getEmail(), result.getEmail());
     }
 }
