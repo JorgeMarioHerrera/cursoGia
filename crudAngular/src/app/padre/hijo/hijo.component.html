@@ -1,0 +1,22 @@
+<p-table [value]="users">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Username</th>
+            <th>E-mail</th>
+        </tr>
+    </ng-template>>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>
+                <button pButton type="button" icon="pi pi-pencil" class="ui-button-info" (click)="openForEdit(user)"></button>
+                <button pButton type="button" icon="pi pi-trash" class="ui-button-danger" (click)="borrar(user)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

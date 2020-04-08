@@ -1,0 +1,28 @@
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" [(ngModel)]="selectedUser.name" pInputText>
+          <label for="float-input">Nombre</label>
+      </span>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+
+
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" [(ngModel)]="selectedUser.username" pInputText>
+          <label for="float-input">Username</label>
+      </span>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+
+
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" [(ngModel)]="selectedUser.email" pInputText>
+          <label for="float-input">e-Mail</label>
+      </span>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <button pButton type="button" label="Enviar" class="ui-button-success" (click)="addOrEdit()"></button>
+    </div>
+</div>
+<app-hijo [recibirDePapa]="mensajeHijo" (enviarPapa)="recibirSaludo($event)"></app-hijo>
